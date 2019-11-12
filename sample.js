@@ -53,6 +53,15 @@ $(document).ready(function(){
                         //5.Number()は文字列を数値に変換する役割をもつ。
                         ];
 
+    let sum = subject_points[0];
+        sum = sum + subject_points[1];
+        sum = sum + subject_points[2];
+        sum = sum + subject_points[3];
+        sum = sum + subject_points[4];
+        $("#sum_indicate").text(sum);
+
+
+
   function get_pass_or_failure(subject_points){
     let number = subject_points.length;
     let judge = "合格";
@@ -66,6 +75,14 @@ $(document).ready(function(){
 };
 
   function judgement(){
+    let subject_points = [Number($('#national_language').val()),
+                          //4.id値がnational_languageのvalue値を取得する。
+                          Number($('#english').val()),
+                          Number($('#mathematics').val()),
+                          Number($('#science').val()),
+                          Number($('#society').val())
+                          //5.Number()は文字列を数値に変換する役割をもつ。
+                          ];
     let average = score_indicate()
     let rank = get_achievement(average);
     let pass_or_failure = get_pass_or_failure(subject_points);
@@ -88,7 +105,14 @@ $(document).ready(function(){
 
 
   $('#btn-judge').click(function() {
-    debugger
+    let subject_points = [Number($('#national_language').val()),
+                          //4.id値がnational_languageのvalue値を取得する。
+                          Number($('#english').val()),
+                          Number($('#mathematics').val()),
+                          Number($('#science').val()),
+                          Number($('#society').val())
+                          //5.Number()は文字列を数値に変換する役割をもつ。
+                          ];
     let result = get_pass_or_failure(subject_points)
     $("#judge").text(result);
   });
